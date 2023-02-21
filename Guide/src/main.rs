@@ -183,20 +183,149 @@ fn main() {
     //     turtle.right(360.0 / f64::from(square_count));
     // }
 
-    turtle.set_speed("instant");
-    let square_count = 50;
-    let mut distance = 100.0;
-    let mut angle = 360.0 / f64::from(square_count); // home resets heading so I need to store it
-    for _ in 0..=(1 * square_count) {
-        for _ in 0..4 {
+    // turtle.set_speed("instant");
+    // let square_count = 50;
+    // let mut distance = 100.0;
+    // let mut angle = 360.0 / f64::from(square_count); // home resets heading so I need to store it
+    // for _ in 0..=(1 * square_count) {
+    //     for _ in 0..4 {
+    //         turtle.forward(distance);
+    //         turtle.right(angle / 4.0);
+    //     } 
+    //     turtle.pen_up();
+    //     turtle.home();
+    //     turtle.pen_down();
+    //     distance -= distance / (1.0 * f64::from(square_count));
+    //     turtle.right(angle);
+    //     angle += 360.0 / f64::from(square_count)
+    // }
+
+
+    // Circle
+
+
+    // example
+    // // for distance 1 and angle 1 (regular 360-gon) radius is approximately 28.65
+    // // radius is proportional to distance (side length)
+    // for _ in 0..360 {
+    //     turtle.forward(1.0);
+    //     turtle.right(1.0);
+    // }
+
+    // exercise 1
+    // for _ in 0..360 {
+    //     turtle.forward(1.0);
+    //     turtle.left(1.0);
+    // }
+
+    // exercise 2
+    // for _ in 0..360 {
+    //     turtle.forward(3.0);
+    //     turtle.left(1.0);
+    // }
+
+    // exercise 4 (3 is missing on the site ¯\_(ツ)_/¯)
+    // for _ in 0..360 {
+    //     turtle.forward(3.0);
+    //     // if I double the angle, radius is approximately 2 times smaller
+    //     // it's becouse for small enough angles sin(x) = x
+    //     // circle is drawn 2 times
+    //     turtle.left(2.0);       
+    // }
+
+    // exercise 5
+    // for _ in 0..360 {
+    //     turtle.backward(3.0);
+    //     turtle.right(1.0);
+    // }
+
+    // exercise 6
+    // for _ in 0..360 {
+    //     turtle.forward(3.0);
+    //     turtle.right(1.0);
+    // }
+    // for _ in 0..360 {
+    //     turtle.forward(3.0);
+    //     turtle.left(1.0);
+    // }
+
+    // exercise 7
+    // for _ in 0..180 {
+    //     turtle.forward(3.0);
+    //     turtle.right(1.0);
+    // }
+    // turtle.pen_up();
+    // turtle.home();
+    // turtle.pen_down();
+    // turtle.left(180.0);
+    // for _ in 0..180 {
+    //     turtle.forward(3.0);
+    //     turtle.right(1.0);
+    // }
+
+    // exercise 8
+    // turtle.set_speed("instant");
+    // let count = 20;
+    // let mut angle = 0.0;
+    // for _ in 0..count {
+    //     turtle.right(angle);
+    //     for _ in 0..180 {
+    //         turtle.forward(2.0);
+    //         turtle.right(1.0);
+    //     }
+    //     angle += 360.0 / f64::from(count);
+    //     turtle.pen_up();
+    //     turtle.home();
+    //     turtle.pen_down();
+    // }
+
+    // exercise 9
+    // turtle.set_speed("instant");
+    // let count = 10;
+    // for _ in 0..count {
+    //     for _ in 0..360 {
+    //         turtle.forward(1.5);
+    //         turtle.right(1.0);
+    //     }
+    //     turtle.right(360.0 / f64::from(count));
+    // }
+    // turtle.set_pen_size(3.0);
+    // turtle.backward(300.0);
+
+    // exercise 10
+    // let count = 10;
+    // for i in 0..360 {
+    //     if i % (360 / count) == 0 {
+    //         turtle.pen_up();
+    //     } else if i % (360 / count) == 180 / count {
+    //         turtle.pen_down();
+    //     } 
+    //     turtle.forward(3.0);
+    //     turtle.right(1.0);
+    // }
+
+    // exercise 11
+    let sides = 10;
+    let distance = 1000.0 / f64::from(sides);
+    let angle = 360.0 / f64::from(sides);
+    for _ in 0..sides {
+        turtle.set_fill_color("orange");
+        turtle.begin_fill();
+        for _ in 0..3 {
             turtle.forward(distance);
-            turtle.right(angle / 4.0);
-        } 
-        turtle.pen_up();
-        turtle.home();
-        turtle.pen_down();
-        distance -= distance / (1.0 * f64::from(square_count));
-        turtle.right(angle);
-        angle += 360.0 / f64::from(square_count)
+            turtle.left(180.0 - 60.0);
+        }
+        turtle.end_fill();
+        turtle.forward(distance);
+        turtle.right(angle);    
     }
+    turtle.set_pen_size(3.0);
+    turtle.set_fill_color("yellow");
+    turtle.begin_fill();
+    turtle.left(angle / 2.0);
+    for _ in 0..360 {
+        turtle.forward(distance / 35.4112 * (f64::from(sides) / 10.0));
+        turtle.right(1.0);   
+    }
+    turtle.end_fill();
 }
