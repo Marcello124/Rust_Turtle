@@ -60,8 +60,54 @@ fn main() {
     //     }
     //     turtle.right(120.0);
     // }
-    // turtle.left(150.0);
+    
 
     // exercise 1
+    // turtle.right(30.0);
+    // for _ in 0..3 {
+    //     for _ in 0..3 {
+    //         turtle.forward(100.0);
+    //         turtle.right(120.0);
+    //     }
+    //     turtle.right(120.0);
+    // }
+    
 
+    // exercise 2
+    // let scale = 2.0;
+    // turtle.left(30.0);
+    // for _ in 0..3 {
+    //     for _ in 0..3 {
+    //         turtle.forward(100.0 * scale);
+    //         turtle.right(120.0);
+    //     }
+    //     turtle.right(120.0);
+    // }
+
+    // exercise 3 
+    // for _ in 0..3 {
+    //     turtle.left(15.0);
+    //     turtle.forward(100.0);
+    //     turtle.right(180.0 - 75.0);
+    //     turtle.forward(51.76381);
+    //     turtle.right(180.0 - 75.0);
+    //     turtle.forward(100.0);
+    //     turtle.right(180.0 - 30.0);
+    //     turtle.right(15.0 + 120.0);
+    // }
+
+    // exercise 4
+    turtle.set_speed("instant");
+    let sides = 360;
+    let angle_count = f64::from(sides);
+    let angle = 180.0 - 180.0 * (angle_count - 2.0) / angle_count;
+
+    turtle.left(90.0 - angle / 2.0);
+    for _ in 0..3 {
+        for _ in 0..sides {
+            turtle.forward(300.0 / angle_count);
+            turtle.right(angle);
+        }
+        turtle.right(120.0);
+    }
 }
